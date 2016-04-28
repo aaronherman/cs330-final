@@ -5,7 +5,7 @@
 * Flask-paypal - payment
 * Flask-WTF - select size, color, price
  * filter by: illustration, digital, nature, photography, landscape, abstract, painting
-
+* Flask-mail - send receipt
 
 ##### database - SqlAlchemy/postgres - 
 * item
