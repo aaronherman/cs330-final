@@ -26,17 +26,12 @@ Flask-paypal
 
 ### Pages
 1. index
-* title
-* carousel - pictures of what's been drawn
-* sign in
-
+ * title
+ * carousel - pictures of what's been drawn
+ * sign in
 2. discover
-* brings you to a page of more of artwork
-  
+ * brings you to a page of more of artwork
 3. item-view
-* all info from the "item" table
-* "buy"
-    
+ * all info from the "item" table
+ * "buy"
 4. checkout/confirmation
-    
-  
