@@ -19,6 +19,10 @@
   * colors
   * description
   * image
+* history? for items that aren't originals?
+ * how many sold
+ * inventory
+ * when it'll be back in stock
 
 
 ##### Pages
@@ -28,6 +32,7 @@
  * sign in
 2. discover
  * brings you to a page of more of artwork
+ * show me: popular, new, random
 3. item-view
  * all info from the "item" table
  * "buy"
