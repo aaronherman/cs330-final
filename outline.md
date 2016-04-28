@@ -1,9 +1,13 @@
-# cs330-final
+# Final project
 
 
-Flask-WTF - select size, color, price, 
+* Flask-OAuth/openID or Flask-Login - login, if necessary. could just use guest accounts
+* Flask-paypal - payment
+* Flask-WTF - select size, color, price
+ * filter by: illustration, digital, nature, photography, landscape, abstract, painting
 
-### database - SqlAlchemy/postgres - 
+
+##### database - SqlAlchemy/postgres - 
 * item
   * id
   * name
@@ -15,16 +19,9 @@ Flask-WTF - select size, color, price,
   * colors
   * description
   * image
-  
-  
 
 
-Flask-OAuth/openID or Flask-Login
-Flask-paypal
-
-
-
-### Pages
+##### Pages
 1. index
  * title
  * carousel - pictures of what's been drawn
