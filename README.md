@@ -3,7 +3,7 @@
 
 Flask-WTF - select size, color, price, 
 
-SqlAlchemy/postgres - 
+### database - SqlAlchemy/postgres - 
   item
       price
       color
@@ -19,7 +19,7 @@ Flask-paypal
 
 
 
-====Pages=====
+### Pages
 1) index
     * title
     * carousel - pictures of what's been drawn
