@@ -4,12 +4,12 @@
 Flask-WTF - select size, color, price, 
 
 ### database - SqlAlchemy/postgres - 
-  item
-      price
-      color
-      size
-      image-url
-      description
+*item
+  price
+  color
+  size
+  image-url
+  description
   
   
 
