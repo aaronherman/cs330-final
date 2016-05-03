@@ -65,4 +65,6 @@ class Contact(db.Model):
         self.message = message
         self.phone = phone
 
+
 db.create_all()
+
