@@ -1,7 +1,12 @@
-from flask-sqlalchemy import SQLalchemy
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask import Flask
+import os
+
+db_url = ""
+database_url = ""
 
 app = Flask(__name__)
-app.config[db url] = os.environ[database url]
+app.config[db_url] = os.environ[database_url]
 
 db = SQLAlchemy(app)
 
@@ -43,8 +48,8 @@ class History(db.Model):
     available = db.Column(db.Integer(1000))
 
     def __init__(self,sold,available)
-    self.sold = sold
-    self.available = available
+        self.sold = sold
+        self.available = available
 
 class Contact(db.Model):
     __tablename__ = "contact"
