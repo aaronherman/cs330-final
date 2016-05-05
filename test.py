@@ -29,10 +29,24 @@ def index():
 
     commentsform = CommentsForm() #commentsform at bottom of index page
     if commentsform.validate_on_submit():
+
         #store results in database
+
+        print(commentsform.name.data)
+        print(commentsform.phone.data)
+        print(commentsform.email.data)
+        print(commentsform.comments.data)
+
         return render_template('index.html',commentsform=commentsform)
+
     return render_template('index.html',commentsform=commentsform)
 
+
+
+
+@app.route('/discover',methods=['GET','POST'])
+def discover():
+    return render_template('discover.html')
 
 
 if __name__ == "__main__":
