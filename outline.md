@@ -37,3 +37,15 @@
  * all info from the "item" table
  * "buy"
 4. checkout/confirmation
+
+
+
+
+
+#####Purchase Page######
+
+1. Have a button that calls a js function
+2. That js function will make an xml request back to the server
+3. It will send the id of the item so the server knows which item is being purchased
+4. The server will go through the database and get the information for that item
+5. The js function will then render content allowing the user to buy that item
