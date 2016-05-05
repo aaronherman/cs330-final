@@ -49,6 +49,12 @@ def discover():
     return render_template('discover.html')
 
 
+
+@app.route('/buy',methods=['GET','POST'])
+def buy():
+    return render_template('buy.html')
+
+
 if __name__ == "__main__":
     app.run()
 
