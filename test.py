@@ -52,6 +52,8 @@ def discover():
 
 @app.route('/buy',methods=['GET','POST'])
 def buy():
+    item = request.form['item']
+    print("The item they want is '" + item + "'")
     return render_template('buy.html')
 
 
