@@ -5,11 +5,15 @@ from wtforms import StringField,ValidationError, SelectField, TextAreaField
 from wtforms.widgets import TextArea
 from wtforms.validators import InputRequired
 from flask_bootstrap import Bootstrap
+from flask.ext.sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
 app.debug = True
 app.config['SECRET_KEY'] = 'LutherCollege'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jkrbnkekcosnxb:jOrPwurv94mnMu7acVpIX0W2sA@ec2-54-197-230-161.compute-1.amazonaws.com:5432/da79ahfav90021'
+
+db = SQLAlchemy(app)
 Bootstrap(app)
 
 
