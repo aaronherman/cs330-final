@@ -82,3 +82,10 @@ wxPython==2.8.12.1
 wxPython-common==2.8.12.1
 xdiagnose==3.6.3build2
 zope.interface==4.0.5
+Flask==0.10.1
+Flask-Bootstrap==3.3.5.7
+Flask-SQLAlchemy==2.1
+Flask-WTF==0.12
+gunicorn==19.3.0
+heroku==0.1.4
+SQLAlchemy==1.0.12
