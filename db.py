@@ -40,6 +40,8 @@ class Description(db.Model):
         self.description = description
         self.img = img
 
+    #Description(id= , description = , img = , blue = , red = , orange = , yellow =, purple = , green =)
+
 class History(db.Model):
     __tablename__ = "history"
     id = db.Column(db.Integer,primary_key=True)
@@ -49,6 +51,8 @@ class History(db.Model):
     def __init__(self,sold,available):
         self.sold = sold
         self.available = available
+
+    #History(id=,sold=,available=)
 
 class Contact(db.Model):
     __tablename__ = "contact"
@@ -67,3 +71,44 @@ class Contact(db.Model):
 
 db.create_all()
 
+
+'''
+Item(id = 1,name = 'circle canvas',price = 175,size_w = 24,size_h=24)
+Description(id=1, description = 'circular canvas, with deer and red.', img = 'ht_1.jpg', blue = False, red = True, orange = True, yellow = True, purple = False, green = False)
+History(id=1,sold=0,available=1)
+
+Item(id = 2,name = 'square canvas',price = 150,size_w = 24,size_h=24)
+Description(id=2, description = 'square canvas with human and abstract art', img = 'ht_2.jpg', blue = True, red = True, orange = True, yellow =False, purple = False, green =True)
+History(id=2,sold=0,available=1)
+
+
+Item(id = 3,name = 'square canvas',price = 150,size_w = 24,size_h=24)
+Description(id=3, description = 'square canvas with abstract painting', img = 'ht_3.jpg', blue = False, red = True, orange = True, yellow =True, purple = False, green =True)
+History(id=3,sold=0,available=1)
+
+Item(id = 4,name = 'circle canvas',price = 175,size_w = 24,size_h=24)
+Description(id=4, description = 'circular canvas with ', img = 'ht_4.jpg', blue = True, red = True, orange =True, yellow =True, purple = False, green =False)
+History(id=4,sold=0,available=1)
+
+
+Item(id = 5,name = 'square canvas',price = 180,size_w = 24,size_h=24)
+Description(id=5, description = 'abstract square canvas with blue trees, lines', img = 'ht_5.jpg', blue =True, red =True, orange =True, yellow =True, purple =False, green =True)
+History(id=5,sold=0,available=1)
+
+Item(id = 6,name = 'square canvas',price = 150,size_w = 24,size_h=24)
+Description(id=6, description ='square canvas with valley and pine trees', img = 'ht_6.jpg', blue = True, red =False, orange =True, yellow =True, purple =False, green =False)
+History(id=6,sold=0,available=1)
+
+Item(id = 7,name = 'rectangle drawing',price = 10,size_w = 4,size_h=6)
+Description(id=7, description = 'tree drawing', img = 'ht_7.jpg', blue = False, red = False, orange = False, yellow =False, purple = False, green =True)
+History(id=7,sold=0,available=1)
+
+Item(id = 8,name = 'square drawing',price = 10,size_w = 5,size_h=5)
+Description(id=8, description = 'tree drawing', img = 'ht_8.jpg', blue = False, red = False, orange = False, yellow =False, purple = False, green =True)
+History(id=8,sold=0,available=1)
+
+Item(id = 9,name = 'square drawing',price = 10,size_w = 5,size_h=5)
+Description(id=9, description = 'tree drawing', img = 'ht_9.jpg', blue = False, red = False, orange = False, yellow =False, purple = False, green =True)
+History(id=9,sold=0,available=1)
+
+'''
