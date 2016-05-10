@@ -6,6 +6,7 @@ from wtforms.widgets import TextArea
 from wtforms.validators import InputRequired
 from flask_bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask_mail import Mail
 
 
 app = Flask(__name__)
@@ -15,6 +16,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jkrbnkekcosnxb:jOrPwurv94mnM
 
 db = SQLAlchemy(app)
 Bootstrap(app)
+
+mail = Mail(app)
 
 class Item(db.Model):
     __tablename__ = "Item"
