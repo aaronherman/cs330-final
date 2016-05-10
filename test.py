@@ -16,6 +16,19 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jkrbnkekcosnxb:jOrPwurv94mnM
 db = SQLAlchemy(app)
 Bootstrap(app)
 
+class Item(db.Model):
+    __tablename__ = "Item"
+    item_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    price = db.Column(db.String(6))
+    size_w = db.Column(db.Integer)
+    size_h = db.Column(db.Integer)
+
+    def __init__(self,name,price,size_w,size_h):
+        self.name = name
+        self.price = price
+        self.size_w = size_w
+        self.size_h = size_h
 
 
 
@@ -56,9 +69,17 @@ def discover():
 
 @app.route('/buy',methods=['GET','POST'])
 def buy():
-    item = request.form['item']
-    print("The item they want is '" + item + "'")
+    item = int(request.form['item'])
+
+    print("Item id is:", item)
+    res = Item.query.all()
+    for k in res:
+        if item == k.item_id:
+            print(k.price)
+
     return render_template('buy.html')
+
+
 
 
 if __name__ == "__main__":
