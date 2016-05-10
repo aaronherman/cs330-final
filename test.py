@@ -168,7 +168,7 @@ def charge():
     )
 
     return render_template('charge.html', amount=amount)
-    #we would provide an html page with the charge information. 
+    #we would provide an html page with the charge information.
 '''
 
 
