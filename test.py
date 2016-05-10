@@ -50,7 +50,6 @@ class PurchaseForm(Form):
 
 @app.route('/',methods=['GET','POST'])
 def index():
-    #need to make form for discover still
 
     commentsform = CommentsForm() #commentsform at bottom of index page
     if commentsform.validate_on_submit():
@@ -77,22 +76,25 @@ def discover():
 
 @app.route('/buy',methods=['GET','POST'])
 def buy():
+    purchaseform = PurchaseForm()
     item = int(request.form['item'])
     res = Item.query.all()
     for k in res:
         if item == k.item_id:
             name = k.name
             price = k.price
-
-    purchaseform = PurchaseForm()
-    if purchaseform.validate_on_submit():
-        #do mail stuff
-        return render_template('thanks.html')
-
-
-
     return render_template('buy.html', purchaseform = purchaseform, name = name)
 
+
+
+@app.route('/checkout', methods=['GET','POST'])
+def checkout():
+    purchaseform = PurchaseForm()
+
+    if purchaseform.validate_on_submit():
+        #do mail stuff
+        name = purchaseform.name.data
+        return render_template('thanks.html', name = name)
 
 
 
