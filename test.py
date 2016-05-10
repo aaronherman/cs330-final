@@ -26,8 +26,7 @@ app.config.update(
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
 	MAIL_USERNAME = 'cs330ecomsite@gmail.com',
-    MAIL_PASSWORD = "KyleIsSuperSmart"
-	#MAIL_PASSWORD = os.environ.get('mail_pass')
+	MAIL_PASSWORD = os.environ.get('mail_pass')
 	)
 
 
