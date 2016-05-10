@@ -34,6 +34,20 @@ class Item(db.Model):
         self.size_h = size_h
 
 
+class Contact(db.Model):
+    __tablename__ = "Contact"
+    item_id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    message = db.Column(db.String(1000))
+    phone = db.Column(db.String(10))
+
+    def __init__(self,name,email,message,phone):
+        self.name = name
+        self.email = email
+        self.message = message
+        self.phone = phone
+
 
 class CommentsForm(Form):
     name = StringField('Name', validators=[InputRequired()])
@@ -53,17 +67,19 @@ class PurchaseForm(Form):
 
 @app.route('/',methods=['GET','POST'])
 def index():
-    #need to make form for discover still
 
     commentsform = CommentsForm() #commentsform at bottom of index page
     if commentsform.validate_on_submit():
 
         #store results in database
+        name = commentsform.name.data
+        phone = commentsform.phone.data
+        email = commentsform.email.data
+        comments = commentsform.comments.data
 
-        print(commentsform.name.data)
-        print(commentsform.phone.data)
-        print(commentsform.email.data)
-        print(commentsform.comments.data)
+        newContact = Contact(name,email,comments,phone)
+        db.session.add(newContact)
+        db.session.commit()
 
         return render_template('index.html',commentsform=commentsform)
 
@@ -80,22 +96,25 @@ def discover():
 
 @app.route('/buy',methods=['GET','POST'])
 def buy():
+    purchaseform = PurchaseForm()
     item = int(request.form['item'])
     res = Item.query.all()
     for k in res:
         if item == k.item_id:
             name = k.name
             price = k.price
-
-    purchaseform = PurchaseForm()
-    if purchaseform.validate_on_submit():
-        #do mail stuff
-        return render_template('thanks.html')
-
-
-
     return render_template('buy.html', purchaseform = purchaseform, name = name)
 
+
+
+@app.route('/checkout', methods=['GET','POST'])
+def checkout():
+    purchaseform = PurchaseForm()
+
+    if purchaseform.validate_on_submit():
+        #do mail stuff
+        name = purchaseform.name.data
+        return render_template('thanks.html', name = name)
 
 
 
