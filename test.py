@@ -42,6 +42,14 @@ class CommentsForm(Form):
     comments = TextAreaField('Comments')
 
 
+class PurchaseForm(Form):
+    name = StringField('Name', validators=[InputRequired()])
+    phone = StringField('Phone', validators=[InputRequired()])
+    email = StringField('Email', validators=[InputRequired()])
+    address = StringField('Address', validators=[InputRequired()])
+
+
+
 
 @app.route('/',methods=['GET','POST'])
 def index():
@@ -73,14 +81,20 @@ def discover():
 @app.route('/buy',methods=['GET','POST'])
 def buy():
     item = int(request.form['item'])
-
-    print("Item id is:", item)
     res = Item.query.all()
     for k in res:
         if item == k.item_id:
-            print(k.price)
+            name = k.name
+            price = k.price
 
-    return render_template('buy.html')
+    purchaseform = PurchaseForm()
+    if purchaseform.validate_on_submit():
+        #do mail stuff
+        return render_template('thanks.html')
+
+
+
+    return render_template('buy.html', purchaseform = purchaseform, name = name)
 
 
 
