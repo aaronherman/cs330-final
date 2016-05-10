@@ -31,6 +31,20 @@ class Item(db.Model):
         self.size_h = size_h
 
 
+class Contact(db.Model):
+    __tablename__ = "Contact"
+    item_id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    message = db.Column(db.String(1000))
+    phone = db.Column(db.String(10))
+
+    def __init__(self,name,email,message,phone):
+        self.name = name
+        self.email = email
+        self.message = message
+        self.phone = phone
+
 
 class CommentsForm(Form):
     name = StringField('Name', validators=[InputRequired()])
@@ -55,11 +69,14 @@ def index():
     if commentsform.validate_on_submit():
 
         #store results in database
+        name = commentsform.name.data
+        phone = commentsform.phone.data
+        email = commentsform.email.data
+        comments = commentsform.comments.data
 
-        print(commentsform.name.data)
-        print(commentsform.phone.data)
-        print(commentsform.email.data)
-        print(commentsform.comments.data)
+        newContact = Contact(name,email,comments,phone)
+        db.session.add(newContact)
+        db.session.commit()
 
         return render_template('index.html',commentsform=commentsform)
 
