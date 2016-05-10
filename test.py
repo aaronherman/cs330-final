@@ -6,7 +6,9 @@ from wtforms.widgets import TextArea
 from wtforms.validators import InputRequired
 from flask_bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
-from flask_mail import Mail
+from flask_mail import Mail,Message
+import os
+
 
 
 app = Flask(__name__)
@@ -16,6 +18,18 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jkrbnkekcosnxb:jOrPwurv94mnM
 
 db = SQLAlchemy(app)
 Bootstrap(app)
+
+app.config.update(
+	DEBUG=True,
+	#EMAIL SETTINGS
+	MAIL_SERVER='smtp.gmail.com',
+	MAIL_PORT=465,
+	MAIL_USE_SSL=True,
+	MAIL_USERNAME = 'cs330ecomsite@gmail.com',
+    MAIL_PASSWORD = "KyleIsSuperSmart"
+	#MAIL_PASSWORD = os.environ.get('mail_pass')
+	)
+
 
 mail = Mail(app)
 
@@ -113,8 +127,21 @@ def checkout():
 
     if purchaseform.validate_on_submit():
         #do mail stuff
+
         name = purchaseform.name.data
-        return render_template('thanks.html', name = name)
+        phone = purchaseform.phone.data
+        email = purchaseform.email.data
+        address = purchaseform.address.data
+
+        msg = Message(
+            'Thanks for ordering!',
+            sender='cs330ecomsite@gmail.com',
+            recipients=
+            [email])
+    msg.body = "Hello " + name + "\n" + "Thank you for ordering from us. We're sending it! \n We will send it to " + address + "\n Thank you for your business!"
+    mail.send(msg)
+
+    return render_template('thanks.html', name = name)
 
 
 
