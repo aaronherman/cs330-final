@@ -143,6 +143,34 @@ def checkout():
     return render_template('thanks.html', name = name)
 
 
+'''
+#We can easily add a purchasing extension by using Flask and Stripe.
+#Here, we would use the form to gather the information and pass that into the charge method.
+#Stripe would handle the financials, once we had a verified account and bank account set up.
+#This is just an example.
+@app.route('/charge', methods=['POST'])
+def charge():
+    # Amount in cents
+    amount = 500
+
+    email = purchaseform.email.data
+
+    customer = stripe.Customer.create(
+        email=email,
+        source=request.form['stripeToken']
+    )
+
+    charge = stripe.Charge.create(
+        customer=customer.id,
+        amount=amount,
+        currency='usd',
+        description='Flask Charge'
+    )
+
+    return render_template('charge.html', amount=amount)
+    #we would provide an html page with the charge information. 
+'''
+
 
 if __name__ == "__main__":
     app.run()
