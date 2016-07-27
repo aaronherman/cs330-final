@@ -1,12 +1,11 @@
 # Final project
 
+This is our final project for CS330. It is an ecommerce website. In our case, it is a sample website for a Luther student's artwork. It uses Flask and JavaScript.  We could easily add a payment processor for a full ecommerce website.
 
-* Flask-paypal
 * Flask-WTF - used to gather contact information, and receive information for purchase
- * Could be used to select size, color, price or filter by: illustration, digital, nature, photography, landscape, abstract, painting
 * Flask-mail - send receipt taken from WTForms
 
-##### database - SqlAlchemy/postgres - 
+##### database - SQLAlchemy/postgres - 
 * item
   * id
   * name
@@ -25,7 +24,6 @@
 ##### Pages
 1. index
  * title
- * carousel - pictures of what's been drawn
 2. discover
  * brings you to a page of more of artwork
 3. item-view
